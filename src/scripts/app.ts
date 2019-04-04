@@ -21,7 +21,9 @@ class Mondrian {
   }
 
   private drawRect() {
-    this.context.fillRect(0, 0, 100, 50);
+    this.context.fillRect(0, 0, 400, 400);
+    this.context.fillStyle = "#FF0000";
+    this.context.fillRect(0, 0, 200, 400);
   }
 }
 
