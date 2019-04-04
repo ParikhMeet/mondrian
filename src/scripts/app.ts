@@ -1,4 +1,5 @@
 import * as $ from "jquery";
+import "./../styles/style.scss";
 
 class Mondrian {
   private canvas: HTMLCanvasElement;
@@ -15,6 +16,12 @@ class Mondrian {
 
     this.canvas = canvas;
     this.context = context;
+
+    this.drawRect();
+  }
+
+  private drawRect() {
+    this.context.fillRect(0, 0, 100, 50);
   }
 }
 
