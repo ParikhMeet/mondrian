@@ -4,7 +4,9 @@
   "description": "Generate Random Mondrian Art",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --open"
   },
   "author": "Meet Parikh",
   "license": "GPL-2.0",
@@ -12,7 +14,14 @@
     "jquery": "^3.3.1"
   },
   "devDependencies": {
+    "@types/jquery": "^3.3.29",
+    "copy-webpack-plugin": "^5.0.2",
+    "css-loader": "^2.1.1",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.1",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
   }
 }
