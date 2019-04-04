@@ -5,12 +5,14 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
     "start": "webpack-dev-server --open"
   },
   "author": "Meet Parikh",
   "license": "GPL-2.0",
   "dependencies": {
+    "bulma": "^0.7.4",
     "jquery": "^3.3.1"
   },
   "devDependencies": {
