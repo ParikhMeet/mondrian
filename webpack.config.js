@@ -1,5 +1,6 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   entry: "./src/scripts/app.ts",
@@ -9,6 +10,17 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist")
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          output: {
+            comments: false
+          }
+        }
+      })
+    ]
   },
   module: {
     rules: [
