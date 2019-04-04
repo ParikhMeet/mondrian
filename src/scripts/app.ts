@@ -1,5 +1,8 @@
 import * as $ from "jquery";
 
-$("#art").html("Mother Nature !!!!");
+function main() {
+  $("#art").html("Mother Nature !!!!");
+  console.log("Mother Nature !!!!");
+}
 
-console.log("Mother Nature !!!!");
+$(document).ready(main);
