@@ -18,13 +18,17 @@ class Mondrian {
     this.drawRect();
   }
 
+  private generateRandomNumber(minVal: number, maxVal: number): number {
+    return Math.floor(Math.random() * maxVal) + minVal
+  }
+
   private drawRect() {
     console.log(`Width: ${this.canvas.width}`);
     console.log(`Height: ${this.canvas.height}`);
 
     this.context.fillRect(0, 0, 300, 150);
-    this.context.fillStyle = "#FF0000";
-    this.context.fillRect(0, 0, 150, 75);
+    this.context.fillStyle = `rgb(${this.generateRandomNumber(0, 255)}, ${this.generateRandomNumber(0, 255)}, ${this.generateRandomNumber(0, 255)})`
+    this.context.fillRect(0, 0, this.generateRandomNumber(0, 300), this.generateRandomNumber(0, 150));
   }
 }
 
