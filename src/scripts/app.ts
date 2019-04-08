@@ -19,6 +19,9 @@ class Mondrian {
   }
 
   private drawRect() {
+    console.log(`Width: ${this.canvas.width}`);
+    console.log(`Height: ${this.canvas.height}`);
+
     this.context.fillRect(0, 0, 300, 150);
     this.context.fillStyle = "#FF0000";
     this.context.fillRect(0, 0, 150, 75);
