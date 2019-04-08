@@ -9,8 +9,6 @@ class Mondrian {
     let canvas = $("#art").get(0) as HTMLCanvasElement;
     let context = canvas.getContext("2d");
 
-    context.lineCap = "round";
-    context.lineJoin = "round";
     context.strokeStyle = "black";
     context.lineWidth = 1;
 
@@ -21,9 +19,9 @@ class Mondrian {
   }
 
   private drawRect() {
-    this.context.fillRect(0, 0, 400, 400);
+    this.context.fillRect(0, 0, 300, 150);
     this.context.fillStyle = "#FF0000";
-    this.context.fillRect(0, 0, 200, 400);
+    this.context.fillRect(0, 0, 150, 75);
   }
 }
 
