@@ -11,6 +11,8 @@ type Rectangle = {
 class Mondrian {
   private canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D;
+  private strokeStyle = "black";
+  private lineWidth = 1;
 
   constructor() {
     let canvas = $("#art").get(0) as HTMLCanvasElement;
@@ -18,21 +20,30 @@ class Mondrian {
     console.log(`Width: ${canvas.width}`);
     console.log(`Height: ${canvas.height}`);
 
-    context.strokeStyle = "black";
-    context.lineWidth = 1;
+    context.strokeStyle = this.strokeStyle;
+    context.lineWidth = this.lineWidth;
 
     this.canvas = canvas;
     this.context = context;
 
-    const baseRect: Rectangle = { x: 0, y: 0, width: 300, height: 150 };
-
-    this.drawRect(baseRect);
+    this.drawBaseRect();
     this.drawRect({
       x: 0,
       y: 0,
       width: this.generateRandomNumber(0, 300),
       height: this.generateRandomNumber(0, 150)
     });
+  }
+
+  private drawBaseRect() {
+    //Width: 300, Height: 150
+    const baseRect: Rectangle = {
+      x: 0,
+      y: 0,
+      width: this.canvas.width,
+      height: this.canvas.height
+    };
+    this.drawRect(baseRect);
   }
 
   private generateRandomNumber(minVal: number, maxVal: number): number {
