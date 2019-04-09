@@ -1,6 +1,13 @@
 import * as $ from "jquery";
 import "./../styles/style.scss";
 
+type Rectangle = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
 class Mondrian {
   private canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D;
@@ -17,13 +24,15 @@ class Mondrian {
     this.canvas = canvas;
     this.context = context;
 
-    this.drawRect();
-    this.drawRect(
-      0,
-      0,
-      this.generateRandomNumber(0, 300),
-      this.generateRandomNumber(0, 150)
-    );
+    const baseRect: Rectangle = { x: 0, y: 0, width: 300, height: 150 };
+
+    this.drawRect(baseRect);
+    this.drawRect({
+      x: 0,
+      y: 0,
+      width: this.generateRandomNumber(0, 300),
+      height: this.generateRandomNumber(0, 150)
+    });
   }
 
   private generateRandomNumber(minVal: number, maxVal: number): number {
@@ -41,14 +50,11 @@ class Mondrian {
   }
 
   private drawRect(
-    x: number = 0,
-    y: number = 0,
-    width: number = 300,
-    height: number = 150,
+    rect: Rectangle,
     styleRGB: string = this.generateRandomRGBStyle()
   ) {
     this.context.fillStyle = styleRGB;
-    this.context.fillRect(x, y, width, height);
+    this.context.fillRect(rect.x, rect.y, rect.width, rect.height);
   }
 }
 
