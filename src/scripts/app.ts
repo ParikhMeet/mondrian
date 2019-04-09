@@ -1,5 +1,6 @@
 import * as $ from "jquery";
 import "./../styles/style.scss";
+import * as _ from "lodash";
 
 type Rectangle = {
   x: number;
@@ -30,8 +31,8 @@ class Mondrian {
     this.drawRect({
       x: 0,
       y: 0,
-      width: this.generateRandomNumber(0, 300),
-      height: this.generateRandomNumber(0, 150)
+      width: _.random(300),
+      height: _.random(150)
     });
   }
 
@@ -46,18 +47,8 @@ class Mondrian {
     this.drawRect(baseRect);
   }
 
-  private generateRandomNumber(minVal: number, maxVal: number): number {
-    return Math.floor(Math.random() * maxVal) + minVal;
-  }
-
   private generateRandomRGBStyle(): string {
-    return `rgb(${this.generateRandomNumber(
-      0,
-      255
-    )}, ${this.generateRandomNumber(0, 255)}, ${this.generateRandomNumber(
-      0,
-      255
-    )})`;
+    return `rgb(${_.random(255)}, ${_.random(255)}, ${_.random(255)})`;
   }
 
   private drawRect(
