@@ -28,11 +28,17 @@ class Mondrian {
   }
 
   generate() {
-    const baseRect = this.drawBaseRect();
+    const baseRect = {
+      x: 0,
+      y: 0,
+      width: this.canvas.width,
+      height: this.canvas.height
+    };
     this.processRect(baseRect);
   }
 
   private processRect(rect: Rectangle) {
+    this.drawRect(rect);
     const breakByWidth = _.sample([true, false]);
     if (breakByWidth && rect.width >= 2 * this.minimumSpacing) {
       //break by width
@@ -68,8 +74,6 @@ class Mondrian {
         width: rect.width - Math.floor(rect.width * breakRatio),
         height: rect.height
       };
-      this.drawRect(rect1);
-      this.drawRect(rect2);
       return [rect1, rect2];
     } else {
       const rect1 = {
@@ -84,8 +88,6 @@ class Mondrian {
         width: rect.width,
         height: rect.height - Math.floor(rect.height * breakRatio)
       };
-      this.drawRect(rect1);
-      this.drawRect(rect2);
       return [rect1, rect2];
     }
   }
@@ -96,18 +98,6 @@ class Mondrian {
     } else {
       return _.random(0, 1, true);
     }
-  }
-
-  private drawBaseRect(): Rectangle {
-    //Width: 300, Height: 150
-    const baseRect: Rectangle = {
-      x: 0,
-      y: 0,
-      width: this.canvas.width,
-      height: this.canvas.height
-    };
-    this.drawRect(baseRect);
-    return baseRect;
   }
 
   private generateRandomRGBStyle(): string {
@@ -123,10 +113,4 @@ class Mondrian {
   }
 }
 
-function main() {
-  let mondrian = new Mondrian();
-  mondrian.generate();
-  console.log("Mother Nature !!!!");
-}
-
-$(document).ready(main);
+$(document).ready(() => new Mondrian().generate());
