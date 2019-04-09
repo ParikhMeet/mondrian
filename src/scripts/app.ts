@@ -14,6 +14,7 @@ class Mondrian {
   private context: CanvasRenderingContext2D;
   private lineWidth = 1;
   private minimumSpacing = 5;
+  private smallRectProbability = 0.995;
 
   constructor() {
     let canvas = $("#art").get(0) as HTMLCanvasElement;
@@ -39,17 +40,23 @@ class Mondrian {
 
   private processRect(rect: Rectangle) {
     this.drawRect(rect);
-    const breakByWidth = _.sample([true, false]);
-    if (breakByWidth && rect.width >= 2 * this.minimumSpacing) {
-      //break by width
-      const rects: [Rectangle, Rectangle] = this.breakRect(rect, true);
-      rects.forEach(it => this.processRect(it));
-    } else if (rect.height >= 2 * this.minimumSpacing) {
-      //break by height
-      const rects: [Rectangle, Rectangle] = this.breakRect(rect, false);
-      rects.forEach(it => this.processRect(it));
-    } else {
-      //Rect Already processed
+
+    if (_.random(0, 1, true) <= this.smallRectProbability) {
+      const breakByWidth = _.sample([true, false]);
+      let rects: [Rectangle, Rectangle];
+      if (breakByWidth && rect.width >= 2 * this.minimumSpacing) {
+        //Break by width and appropriate width available
+        rects = this.breakRect(rect, true);
+      } else if (rect.height >= 2 * this.minimumSpacing) {
+        //appropriate height available
+        rects = this.breakRect(rect, false);
+      } else if (!breakByWidth && rect.width >= 2 * this.minimumSpacing) {
+        //if break by height and apprpriate height is not available but width is available
+        rects = this.breakRect(rect, true);
+      } // else rectangle is already processed.
+      if (rects) {
+        rects.forEach(it => this.processRect(it));
+      }
     }
   }
 
