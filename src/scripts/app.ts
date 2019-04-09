@@ -17,21 +17,38 @@ class Mondrian {
     this.canvas = canvas;
     this.context = context;
 
-    this.drawRect(0, 0, 300, 150);
-    this.drawRandomRect()
+    this.drawRect();
+    this.drawRect(
+      0,
+      0,
+      this.generateRandomNumber(0, 300),
+      this.generateRandomNumber(0, 150)
+    );
   }
 
   private generateRandomNumber(minVal: number, maxVal: number): number {
-    return Math.floor(Math.random() * maxVal) + minVal
+    return Math.floor(Math.random() * maxVal) + minVal;
   }
 
-  private drawRandomRect() {
-    this.context.fillStyle = `rgb(${this.generateRandomNumber(0, 255)}, ${this.generateRandomNumber(0, 255)}, ${this.generateRandomNumber(0, 255)})`
-    this.drawRect(0, 0, this.generateRandomNumber(0, 300), this.generateRandomNumber(0, 150))
+  private generateRandomRGBStyle(): string {
+    return `rgb(${this.generateRandomNumber(
+      0,
+      255
+    )}, ${this.generateRandomNumber(0, 255)}, ${this.generateRandomNumber(
+      0,
+      255
+    )})`;
   }
 
-  private drawRect(x: number, y: number, height: number, width: number) {
-    this.context.fillRect(x, y, height, width);
+  private drawRect(
+    x: number = 0,
+    y: number = 0,
+    width: number = 300,
+    height: number = 150,
+    styleRGB: string = this.generateRandomRGBStyle()
+  ) {
+    this.context.fillStyle = styleRGB;
+    this.context.fillRect(x, y, width, height);
   }
 }
 
