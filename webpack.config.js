@@ -5,11 +5,11 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 module.exports = {
   entry: "./src/scripts/app.ts",
   devServer: {
-    contentBase: "./dist"
+    contentBase: "./docs"
   },
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "docs")
   },
   optimization: {
     minimizer: [
