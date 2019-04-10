@@ -2,7 +2,7 @@
 
 This is the typescript solution for the Mondrian task given in Stanford University. Original question paper can be found [here](http://nifty.stanford.edu/2018/stephenson-mondrian-art/).
 
-**[Live Demo](https://parikhmeet.github.io/mondrian/)**
+**[Live Demo](https://parikhmeet.github.io/mondrian/)** Just refresh the page for generationg a random art each time :blush:
 
 ## Sample Output
 
