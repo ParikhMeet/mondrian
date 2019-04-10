@@ -1,0 +1,165 @@
+
+<!-- saved from url=(0055)http://nifty.stanford.edu/2018/stephenson-mondrian-art/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Nifty Assignment: Random Mondrian Art</title>
+  <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+  <body>
+
+  <h1>Random Mondrian Art</h1>
+
+  <img src="./Nifty Assignment_ Random Mondrian Art_files/mondrian_smaller.png">
+  <p>
+  Author: Ben Stephenson (ben.stephenson@ucalgary.ca)
+
+  </p><h2>Description:</h2>
+  This assignment asks students to create random "art" in a Mondrian style
+  using a recursive algorithm.
+
+  <p>
+  The actual student handout from spring 2017: 
+  <a href="http://nifty.stanford.edu/2018/stephenson-mondrian-art/Handout_Spring.pdf">PDF</a>
+  <a href="http://nifty.stanford.edu/2018/stephenson-mondrian-art/Handout_Spring.docx">Word</a>
+  <br>
+  The actual student handout from fall 2017, which incorporates lessons
+  learned:
+  <a href="http://nifty.stanford.edu/2018/stephenson-mondrian-art/Handout_Fall.pdf">PDF</a>
+  <a href="http://nifty.stanford.edu/2018/stephenson-mondrian-art/Handout_Fall.docx">Word</a>
+
+  </p><h2>Metadata</h2>
+
+  <table border="1">
+    <tbody><tr><td>Summary</td>
+        <td>
+          The Random Mondrian Art assignment has students create pseudo-random
+          "art".  While the provided algorithm produces basic art in a 
+          Mondrian style, the possibilities to extend the assignment and
+          generate much more interesting art are nearly endless.
+        </td></tr>
+    <tr><td>Audience</td>
+        <td>
+          I have used this assignment as the first assessment in a third-year
+          programming language paradigms course that introduces students
+          to functional programming for the first time.  I also believe that
+          it would work well as a recursion assignment toward the end of CS1,
+          but I haven't yet had an opportunity to use it in that context.
+        </td></tr>
+    <tr><td>Difficulty</td>
+        <td>
+          Students found this assignment to be moderately difficult, at least
+          in part because it was the first program of significant length that
+          they were ever asked to create on their own using Haskell.  I give
+          the students approximately 2 weeks to complete the assignment, both
+          so that they have time to resolve problems they are experiencing
+          because they are new to functional programming, and so they have time
+          to experiment with the open-ended portion of the assignment.  
+          Similarly, I'd give students about 2 weeks to complete this
+          assignment near the end of CS1.
+        </td></tr>
+    <tr><td>Topics</td>
+        <td>
+          Recursion.  When implemented in Haskell, lists are also used
+          to manage the random numbers without requiring monads.  Lists / 
+          arrays are not necessary when implementing in Java or Python.
+        </td></tr>
+    <tr><td>Strengths</td>
+        <td>
+          The assignment provides nearly unlimited opportunity to express
+          one's artistic style while also being an example of a problem that
+          is easier to solve recursively than iteratively.  The artistic
+          aspect of the assignment encourages students to spend time 
+          coding, and to experiment with different strategies for generating
+          the shapes and colors.  The amount of variation in the submitted
+          assignments is very large, suggesting that students were either
+          interested in the assignment or very motivated by the small 
+          grade boost associated with implementing an extension to the 
+          provided algorithm.
+        </td></tr>
+    <tr><td>Weaknesses</td>
+        <td>
+          In Haskell, generating a list of random numbers before calling the
+          student created function to avoid using Monads is a little bit
+          stilted, but it works (and based on the order in which I teach the
+          course material has the beneficial side effect of forcing students to
+          practice working with lists in addition to recursion).  
+          <p>
+          The first time I used this assignment I had some cases where it
+          was difficult to determine if the code the student submitted
+          deviated from the provided algorithm due to inability to
+          implement it, or for artistic reasons.  The revised handout has
+          (hopefully) addressed this by requiring students to implement the
+          provided algorithm before modifying it to match their own
+          artistic style.
+          </p><p>
+          The grading can be a little bit subjective when it comes to
+          determining whether or not the enhancements implemented by students
+          represent no extension, a modest extension or a substantial 
+          extension.  As a result, I had more requests to override TA 
+          grading than I typically do.  Despite this, I think that it is
+          important to attach a small number of marks to the enhancements
+          to encourage students to spent more time experimenting.
+        </p></td></tr>
+    <tr><td>Dependencies</td>
+        <td>
+          In Haskell, we had the students generate HTML output to avoid
+          being dependent on a particular graphics library as we are not
+          aware of a good platform independent option for Haskell.  A Java 
+          or Python implementation could display the output using any graphics
+          library, or like the Haskell version, could output an HTML document
+          that can be viewed in any modern browser.
+        </td></tr>
+    <tr><td>Variants</td>
+        <td>
+          We left coming up with variants to the students (and motivated them
+          to do so with a small number of marks).  They didn't disappoint, as 
+          shown at the end of this document.
+        </td></tr>
+
+  </tbody></table>
+
+  <h2>Starter and Completed Code:</h2>
+  Students were provided with this starter code: <a href="http://nifty.stanford.edu/2018/stephenson-mondrian-art/mondrian_start.hs">mondrian_start.hs</a>.
+
+  <p>
+  My Haskell implementation of the basic algorithm can be found here: <a href="http://nifty.stanford.edu/2018/stephenson-mondrian-art/mondrian_basic.hs">mondrian_basic.hs</a>.
+
+  </p><p>
+  My extended version that uses additional colors, and uses the position
+  within the image to influence which color is selected can be found here:
+  <a href="http://nifty.stanford.edu/2018/stephenson-mondrian-art/mondrian_extended.hs">mondrian_extended.hs</a>.
+
+  </p><p>
+  A Python 3 implementation, which displays the output using TKinter rather
+  than writing an HTML file can be found here:
+  <a href="http://nifty.stanford.edu/2018/stephenson-mondrian-art/mondrian_basic.py">mondrian_basic.py</a>.
+
+  </p><h2>Sample Student Images</h2>
+  Some of my favorite student images from the Spring 2017 term are shown
+  below.
+
+  <p>
+  <span style="padding:2%">
+    <img src="./Nifty Assignment_ Random Mondrian Art_files/sample_1.png" width="45%">
+  </span>
+  <span style="padding:2%">
+    <img src="./Nifty Assignment_ Random Mondrian Art_files/sample_2.png" width="45%">
+  </span>
+  <br><br><br><br>
+  <span style="padding:2%">
+    <img src="./Nifty Assignment_ Random Mondrian Art_files/sample_3.png" width="45%">
+  </span>
+  <span style="padding:2%">
+    <img src="./Nifty Assignment_ Random Mondrian Art_files/sample_4.png" width="45%">
+  </span>
+  <br><br><br><br>
+  <span style="padding:2%">
+    <img src="./Nifty Assignment_ Random Mondrian Art_files/sample_5.png" width="45%">
+  </span>
+  <span style="padding:2%">
+    <img src="./Nifty Assignment_ Random Mondrian Art_files/sample_6.png" width="45%">
+  </span>
+
+
+
+  
+
+</p></body></html>
