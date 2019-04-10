@@ -51,7 +51,7 @@ class Mondrian {
         //appropriate height available
         rects = this.breakRect(rect, false);
       } else if (!breakByWidth && rect.width >= 2 * this.minimumSpacing) {
-        //if break by height and apprpriate height is not available but width is available
+        //if break by height and appropriate height is not available but width is available
         rects = this.breakRect(rect, true);
       } // else rectangle is already processed.
       if (rects) {
