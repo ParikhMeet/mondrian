@@ -21,7 +21,7 @@
     "@types/lodash": "^4.14.123",
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^2.1.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "ts-loader": "^5.3.3",
